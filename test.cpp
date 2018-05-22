@@ -47,6 +47,10 @@ int main() {
         ASSERT_EQUAL({}, "hsla(900, 15%, 90%)");
         ASSERT_EQUAL(Color{ 226, 233, 233, 1 }, "hsl(900, 15%, 90%)");
         ASSERT_EQUAL(Color{ 226, 233, 233, 1 }, "hsl(900, 0.15, 90%)"); // NOTE: not spec compliamt.
+        ASSERT_EQUAL(Color{ 0, 0, 0, 1 }, "hsl(9999999999999999999, 0, 0)"); // NOTE: float precision loss
+        ASSERT_EQUAL(Color{ 255, 191, 0, 1 }, "hsl(45, 100%, 50%)");
+        ASSERT_EQUAL(Color{ 255, 191, 0, 1 }, "hsl(-315, 100%, 50%)");
+        ASSERT_EQUAL(Color{ 255, 191, 0, 1 }, "hsl(-675, 100%, 50%)");
 
         // Out of range:
         ASSERT_EQUAL({}, "xxx");
